@@ -1,0 +1,12 @@
+runai submit \
+  --name download-adhd200 \
+  --image 10.202.67.207:5000/wds20:download_adhd200 \
+  --backoff-limit 0 \
+  --gpu 0 \
+  --cpu 1 \
+  --large-shm \
+  --run-as-user \
+  --host-ipc \
+  --project wds20 \
+  --volume /nfs/home/wds20/psychiatric_project/datasets/ADHD200:/workdir/dataset \
+  --command -- bash /workdir/download_script.sh
